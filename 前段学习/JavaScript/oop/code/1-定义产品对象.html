@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定义产品对象</title>
+</head>
+<body>
+<div id="phone">
+</div>
+</body>
+</html>
+<script>
+
+    function Product(initInfos) {
+        this.initInfo(initInfos);
+    }
+
+        Product.prototype.log = function(initInfos){
+            console.log(initInfos)
+        }
+        Product.prototype.initInfo = function(initInfos){
+            this.title = initInfos.title;
+            this.price = initInfos.price;
+            this.nowPrice = initInfos.nowPrice;
+            this.image = initInfos.image;
+            this.discount = initInfos.discount;
+            this.sales = initInfos.sales;
+        }
+
+
+    Product.prototype.bindDom = function () {
+            var str = '';
+
+            str +='<h3>'+this.title+'</h3>'
+            str += '<dl>'
+            str += '<dt><a><img src="' + this.image + '" width="384" height="225" /></a></dt>'
+            str += '<dd>'
+            str += '<span><a><em>' + this.discount + '折/</em>' + this.name + '</a></span>'
+            str += '</dd>'
+            str += '<dd class="price">'
+            str += '<em>￥' + this.nowPrice + '</em>'
+            str += '<del>￥' + this.price + '</del>'
+            str += '<i>售量：' + this.sales + '</i>'
+            str += '</dd>'
+            str += '<dd>' + this.description + ""
+            str += '</dd>'
+            str += '</dl>'
+            return str;
+        }
+
+
+//    Product.prototype = {
+//        initInfo: function (initInfos) {
+//            this.title = initInfos.title;
+//            this.price = initInfos.price;
+//            this.nowPrice = initInfos.nowPrice;
+//            this.image = initInfos.image;
+//            this.discount = initInfos.discount;
+//            this.sales = initInfos.sales;
+//        },
+//        bindDom: function () {
+//            var str = ''
+//            str += '<dl>'
+//            str += '<dt><a><img src="' + this.image + '" width="384" height="225" /></a></dt>'
+//            str += '<dd>'
+//            str += '<span><a><em>' + this.discount + '折/</em>' + this.name + '</a></span>'
+//            str += '</dd>'
+//            str += '<dd class="price">'
+//            str += '<em>￥' + this.price + '</em>'
+//            str += '<del>￥' + this.nowPrice + '</del>'
+//            str += '<i>售量：' + this.sales + '</i>'
+//            str += '</dd>'
+//            str += '<dd>' + this.description + ""
+//            str += '</dd>'
+//            str += '</dl>'
+//            return str;
+//        },
+//    }
+    var iphone2 = {
+        title: "iphpne7",
+        price: 4680,
+        nowPrice: 4000,
+        image: "./images/iphone/iPhone7.png",
+        discount: 0.9,
+        sales: "5"
+    }
+    var iphone1 = {
+        title: "iphpne5",
+        price: 4680,
+        nowPrice: 4000,
+        image: "./images/iphone/iPhone7.png",
+        discount: 0.9,
+        sales: "7"
+    }
+    var iphone1 = new Product(iphone1);
+    var iphone2 = new Product(iphone2);
+    document.getElementById("phone").innerHTML = iphone1.bindDom()+iphone2.bindDom();
+</script>
