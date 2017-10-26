@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>constructor</title>
+    <style src=""></style>
+    <style type="text/css">
+
+    </style>
+    <script src="" ></script>
+</head>
+<body>
+
+
+</body>
+</html>
+
+<script src="" ></script>
+<script>
+    function Product(){
+
+    }
+    Product.prototype = {
+        info : {
+            name:"wm"
+        }
+    }
+    var p1 = new Product();
+    var p2 = new Product();
+    p1.info.name = "p1";
+    p2.info.name = "p2";
+
+    console.log(p1.info.name)
+    console.log(p2.info.name)
+</script>
